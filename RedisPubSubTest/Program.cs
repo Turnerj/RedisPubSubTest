@@ -58,6 +58,7 @@ namespace RedisPubSubTest
 			if (!succeedingTask.Equals(completionSource.Task))
 			{
 				stopwatch.Stop();
+				Console.ForegroundColor = ConsoleColor.Red;
 				RedisHelper.DebugInfo(connection);
 				Debug.Fail($"{testName}: Subscriber response took too long ({stopwatch.Elapsed.TotalMilliseconds})");
 			}
