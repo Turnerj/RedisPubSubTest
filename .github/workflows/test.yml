@@ -31,5 +31,5 @@ jobs:
       with:
         dotnet-version: '5.0.x'
     - name: Perform Test
-      run: dotnet run --project .\RedisPubSubTest\RedisPubSubTest.csproj
+      run: dotnet run --project ./RedisPubSubTest/RedisPubSubTest.csproj
       
