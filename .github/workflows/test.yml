@@ -24,6 +24,16 @@ jobs:
         os: [ubuntu-latest, windows-latest, macOS-latest]
       fail-fast: false
     steps:
+    - name: Configure Windows
+      if: matrix.os == 'windows-latest'
+      run: choco install Memurai-Developer
+    - name: Configure Ubuntu
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get install redis-server
+    - name: Configure MacOS
+      if: matrix.os == 'macOS-latest'
+      run: brew install redis && brew services start redis
+
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup dotnet 5.0
