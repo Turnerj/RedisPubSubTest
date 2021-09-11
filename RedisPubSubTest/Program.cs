@@ -50,6 +50,8 @@ namespace RedisPubSubTest
 			{
 				completionSource.SetResult(true);
 			});
+			
+			await Task.Delay(500);
 
 			stopwatch.Start();
 			await subscriber.PublishAsync(testName, $"Hello {testNumber:00}", CommandFlags.FireAndForget);
